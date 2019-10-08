@@ -31,7 +31,7 @@ class ViewController: BaseViewController {
     private var lineChartDataSet: LineChartDataSet!
     private var lineChartData: LineChartData!
     private var currentCategory = Category.Balance
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let color = currentCategory.color()
@@ -48,12 +48,12 @@ class ViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         stepper = SJStepperView()
-        stepper.stepperColor = currentCategory.color()
-        stepper.title = "Uruur"
         stepper.upButtonImage = UIImage(named: "up")
         stepper.downButtonImage = UIImage(named: "down")
+        stepper.setup(title: "Urur", stepperColor: currentCategory.color())
+        stepper.delegate = self
         navigationItem.titleView = stepper
-        stepper.setTitle(text: "Wend 27.04")
+        setDate(value: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,9 +64,6 @@ class ViewController: BaseViewController {
             vc.currentCategory = self.currentCategory
         }
     }
-    
-    
-
 }
 
 extension ViewController {
@@ -159,5 +156,21 @@ extension ViewController {
         lineChartData = LineChartData(dataSet: lineChartDataSet)
         lineChart.data = lineChartData
     }
+    
+    private func setDate(value: Int) {
+        stepper.setTitle(text: Date().getDateByOffset(offset: value).getDescription())
+    }
+    
+}
+
+extension ViewController : SJStepperViewDelegate {
+    func downButtonTapped(value: Int) {
+        setDate(value: value)
+    }
+    
+    func upButtonTapped(value: Int) {
+        setDate(value: value)
+    }
+    
     
 }

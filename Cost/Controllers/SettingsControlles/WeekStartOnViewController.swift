@@ -18,7 +18,7 @@ class WeekStartOnViewController: BaseSettingsViewController {
     }
  
     private var storageManager: StorageManager! = StorageManager()
-    let dayOfWeek = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    let dayOfWeek = [DaysOfWeek.saturday.string(), DaysOfWeek.sunday.string(), DaysOfWeek.monday.string(), DaysOfWeek.tuesday.string(), DaysOfWeek.wednesday.string(), DaysOfWeek.thursday.string(), DaysOfWeek.friday.string()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class WeekStartOnViewController: BaseSettingsViewController {
     
     private func setSelectedDayOfWeek() {
         let selectedDay = Int(storageManager.getData(key: .weekStartOn)!)!
-        tableView.selectRow(at: IndexPath(row: selectedDay, section: 0), animated: true, scrollPosition: .none)
+        tableView.selectRow(at: IndexPath(row: (selectedDay - 1), section: 0), animated: true, scrollPosition: .none)
     }
 
     /*
@@ -73,7 +73,7 @@ extension WeekStartOnViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        storageManager.saveData(data: indexPath.row.description, key: .weekStartOn)
+        storageManager.saveData(data: (indexPath.row+1).description, key: .weekStartOn)
     }
     
 }

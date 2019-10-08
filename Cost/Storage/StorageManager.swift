@@ -11,7 +11,7 @@ struct StorageManager {
     private let userDefault  = UserDefaults.standard
     
     init() {
-        userDefault.register(defaults: [StorageKey.weekStartOn.string():"0"])
+        userDefault.register(defaults: [StorageKey.weekStartOn.string():"1"])
         userDefault.register(defaults: [StorageKey.language.string():"0"])
         userDefault.register(defaults: [StorageKey.currency.string():"0"])
     }

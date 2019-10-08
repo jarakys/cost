@@ -13,7 +13,8 @@ protocol SJStepperViewDelegate : AnyObject {
 
 import UIKit
 
-class SJStepperView: UIView {
+@IBDesignable class SJStepperView: UIView {
+    @IBInspectable
     var stepperColor: UIColor =  .lightGray {
         didSet {
             titleLabel?.textColor = self.stepperColor
@@ -25,10 +26,26 @@ class SJStepperView: UIView {
     weak var delegate: SJStepperViewDelegate?
     
     var title: String?
-    var upButtonImage: UIImage?
-    var downButtonImage: UIImage?
+    @IBInspectable
+    var upButtonImage: UIImage? {
+        didSet {
+            if self.upButtonImage != nil {
+                self.upButtonImage = upButtonImage!.withRenderingMode(.alwaysTemplate)
+                self.upButton?.setImage(self.upButtonImage, for: .normal)
+            }
+        }
+    }
+    @IBInspectable
+    var downButtonImage: UIImage? {
+        didSet {
+            if self.downButtonImage != nil {
+                self.downButtonImage = downButtonImage!.withRenderingMode(.alwaysTemplate)
+                self.downButton?.setImage(self.downButtonImage, for: .normal)
+            }
+        }
+    }
     
-    private var value:Int = 0
+    var value:Int = 0
     private var titleLabel: UILabel?
     private var upButton: UIButton? = UIButton(type: .custom)
     private var downButton: UIButton? = UIButton(type: .custom)
@@ -40,20 +57,27 @@ class SJStepperView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        updateView()
+        //updateView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //updateView()
+        updateView()
+    }
+    
+    func setup(title: String, stepperColor: UIColor) {
+        self.title = title
+        self.stepperColor = stepperColor
+        updateView()
     }
     
     
     private func createButton() {
-        
+        print(upButtonImage)
         upButtonImage = upButtonImage?.withRenderingMode(.alwaysTemplate)
         downButtonImage = downButtonImage?.withRenderingMode(.alwaysTemplate)
-        upButton?.contentHorizontalAlignment = .left
+        upButton!.contentHorizontalAlignment = .left
+        
         upButton?.addTarget(self, action: #selector(upButtomTapped), for: .touchUpInside)
         downButton?.addTarget(self, action: #selector(downButtomTapped), for: .touchUpInside)
         downButton?.contentHorizontalAlignment = .left
@@ -61,6 +85,8 @@ class SJStepperView: UIView {
         downButton?.contentVerticalAlignment = .top
         upButton?.setImage(upButtonImage, for: .normal)
         downButton?.setImage(downButtonImage, for: .normal)
+        upButton?.tintColor = self.stepperColor
+        downButton?.tintColor = self.stepperColor
         
         
     }
@@ -71,6 +97,7 @@ class SJStepperView: UIView {
         titleLabel?.text = title
         titleLabel?.textAlignment = .right
         titleLabel?.font = UIFont(name: "SegueUI-SemiBold.ttf", size: 20)
+        titleLabel?.textColor = self.stepperColor
     }
     
     
@@ -103,7 +130,6 @@ class SJStepperView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        updateView()
     }
     
     func setTitle(text: String) {

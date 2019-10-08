@@ -21,11 +21,7 @@ class StatisticViewController: BaseViewController {
     }
     @IBOutlet weak var sjStepperView: SJStepperView! {
         didSet {
-            self.sjStepperView.upButtonImage = UIImage(named: "up")
-            self.sjStepperView.downButtonImage = UIImage(named: "down")
-            self.sjStepperView.title = "Hi"
             self.sjStepperView.delegate = self
-            self.sjStepperView.stepperColor = .lightGray
         }
     }
     
@@ -41,22 +37,24 @@ class StatisticViewController: BaseViewController {
     }
     
     var dataOne = PieChartDataEntry(value: 0, label: "", data: "")
-    var dataTwo = PieChartDataEntry(value: 0, label: "Буд")
-    var dataThree = PieChartDataEntry(value: 0, label: "Буд")
-    var numberOfDown = [PieChartDataEntry]()
-    var testValue = ["1200  \n BALANCE","300 \n EARN","250 \n COSTS"]
-    var statTest = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
-    var source = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
-    
+    private var dataTwo = PieChartDataEntry(value: 0, label: "Буд")
+    private var dataThree = PieChartDataEntry(value: 0, label: "Буд")
+    private var numberOfDown = [PieChartDataEntry]()
+    private var testValue = ["1200  \n BALANCE","300 \n EARN","250 \n COSTS"]
+    private var statTest = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
+    private var source = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
+    private let storageManager = StorageManager()
     var currentCategory: Category = .Balance
-    var iterableThrought: IterableDate = .day
-    
+    private var iterableThrought: IterableDate = .day
+    private var firstDayInWeek: DaysOfWeek!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSource()
         configureUI()
         configurePieChart()
+        firstDayInWeek =  DaysOfWeek(rawValue: Int(storageManager.getData(key: .weekStartOn)!)!)
         setDate(value: 0)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -73,16 +71,6 @@ class StatisticViewController: BaseViewController {
         value.textColor = currentCategory.color()
         category.text = currentCategory.string()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -159,7 +147,7 @@ extension StatisticViewController {
         case .month:
             break
         case .week:
-            let date = Date().addDaysToDate(weekOffset: value).startAndEndOfWeek(dayOfWeek: .monday).start
+            let date = Date().addDaysToDate(weekOffset: value).startAndEndOfWeek(dayOfWeek: firstDayInWeek).start
             print(date)
             title = date.getDescription()
         }
@@ -197,6 +185,7 @@ extension StatisticViewController : UITableViewDelegate {
 extension StatisticViewController : SegmentControlDelegate {
     func changeToIndex(index: Int) {
         iterableThrought = IterableDate(rawValue: index)!
+        sjStepperView.value = 0
         setDate(value: 0)
     }
 }

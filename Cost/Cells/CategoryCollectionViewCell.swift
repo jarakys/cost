@@ -9,12 +9,21 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    
+    var colorSelectedItem:UIColor = .blue {
+        didSet {
+            if let image  = self.viewWithTag(1) as? UIImageView {
+                image.tintColor = self.isSelected ? self.colorSelectedItem : .gray
+            }
+        }
+    }
+    
     override var isSelected: Bool {
         didSet {
             // set color according to state
             self.backgroundColor = self.isSelected ? .white : .clear
             if let image  = self.viewWithTag(1) as? UIImageView {
-                image.tintColor = self.isSelected ? .red : .gray
+                image.tintColor = self.isSelected ? self.colorSelectedItem : .gray
             }
         }
     }
