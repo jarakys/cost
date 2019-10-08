@@ -1,0 +1,6 @@
+framework module Pods_Cost {
+  umbrella header "Pods-Cost-umbrella.h"
+
+  export *
+  module * { export * }
+}
