@@ -59,6 +59,7 @@ class StatisticViewController: BaseViewController {
     }
     
     override func configureNavigationBar() {
+        super.configureNavigationBar()
         self.navigationController?.navigationBar.tintColor = currentCategory.color()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.lightGray]
         

@@ -38,7 +38,7 @@ class BaseSettingsViewController: BaseViewController, ConfigurableTableViewHeigh
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = .white
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+//            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
             //appearance.shadowImage = UIImage(named: "")
             self.navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationController?.navigationBar.standardAppearance = appearance
@@ -46,7 +46,7 @@ class BaseSettingsViewController: BaseViewController, ConfigurableTableViewHeigh
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         }
         else {
-            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+//            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
             //self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
         }
         self.navigationController?.navigationBar.tintColor = .black

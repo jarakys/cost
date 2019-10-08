@@ -25,9 +25,18 @@ class BaseViewController: UIViewController, ConfigurableNavigationBar {
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        
+        if #available(iOS 13.0, *) {
+            let app = UINavigationBarAppearance()
+            app.shadowColor = .white
+            app.shadowImage = UIImage()
+            app.backgroundColor = .white
+            app.backgroundImage = UIImage()
+            self.navigationController?.navigationBar.compactAppearance = app
+            self.navigationController?.navigationBar.standardAppearance = app
+            self.navigationController?.navigationBar.scrollEdgeAppearance = app
+        }
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
     }
     
