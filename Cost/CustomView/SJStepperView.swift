@@ -7,8 +7,8 @@
 //
 
 protocol SJStepperViewDelegate : AnyObject {
-    func downButtonTapped(value: String)
-    func upButtonTapped(value: String)
+    func downButtonTapped(value: Int)
+    func upButtonTapped(value: Int)
 }
 
 import UIKit
@@ -27,11 +27,8 @@ class SJStepperView: UIView {
     var title: String?
     var upButtonImage: UIImage?
     var downButtonImage: UIImage?
-    var iterableThrought: Calendar.Component = .day {
-        didSet {
-            setTitle(text: "String")
-        }
-    }
+    
+    private var value:Int = 0
     private var titleLabel: UILabel?
     private var upButton: UIButton? = UIButton(type: .custom)
     private var downButton: UIButton? = UIButton(type: .custom)
@@ -48,7 +45,7 @@ class SJStepperView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        updateView()
+        //updateView()
     }
     
     
@@ -110,30 +107,23 @@ class SJStepperView: UIView {
     }
     
     func setTitle(text: String) {
-        //updateView()
         title = text
         titleLabel?.text = title
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
 
 //Action
 extension SJStepperView {
-    
+
     @objc func upButtomTapped() {
-        delegate?.upButtonTapped(value: "down")
+        value += 1
+        delegate?.upButtonTapped(value: value)
     }
     
     @objc func downButtomTapped() {
-        delegate?.downButtonTapped(value: "down")
+        value -= 1
+        delegate?.downButtonTapped(value: value)
     }
     
     

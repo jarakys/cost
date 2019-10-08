@@ -40,7 +40,6 @@ class StatisticViewController: BaseViewController {
         }
     }
     
-    var iterableThrought: Calendar.Component = .day
     var dataOne = PieChartDataEntry(value: 0, label: "", data: "")
     var dataTwo = PieChartDataEntry(value: 0, label: "Буд")
     var dataThree = PieChartDataEntry(value: 0, label: "Буд")
@@ -48,13 +47,16 @@ class StatisticViewController: BaseViewController {
     var testValue = ["1200  \n BALANCE","300 \n EARN","250 \n COSTS"]
     var statTest = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
     var source = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
+    
     var currentCategory: Category = .Balance
+    var iterableThrought: IterableDate = .day
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSource()
         configureUI()
         configurePieChart()
+        setDate(value: 0)
         // Do any additional setup after loading the view.
     }
     
@@ -140,13 +142,28 @@ extension StatisticViewController {
 //UpdateUI
 extension StatisticViewController {
     
-    func updateUI() {
+    private func updateUI() {
         configureNavigationBar()
         value.text = "120.00"
         let color = currentCategory.color()
         value.textColor = color
         category.text = currentCategory.string()
         segmentControlView.selectorViewColor = color
+    }
+    
+    private func setDate(value: Int) {
+        var title = ""
+        switch iterableThrought {
+        case .day:
+            title = Date().getDateByOffset(offset: value).getDescription()
+        case .month:
+            break
+        case .week:
+            let date = Date().addDaysToDate(weekOffset: value).startAndEndOfWeek(dayOfWeek: .monday).start
+            print(date)
+            title = date.getDescription()
+        }
+        sjStepperView.setTitle(text: title)
     }
     
 }
@@ -179,18 +196,18 @@ extension StatisticViewController : UITableViewDelegate {
 
 extension StatisticViewController : SegmentControlDelegate {
     func changeToIndex(index: Int) {
-        
+        iterableThrought = IterableDate(rawValue: index)!
+        setDate(value: 0)
     }
 }
 
 extension StatisticViewController : SJStepperViewDelegate {
-    func downButtonTapped(value: String) {
-        sjStepperView.setTitle(text: "Titile")
+    func downButtonTapped(value: Int) {
+        setDate(value: value)
     }
     
-    func upButtonTapped(value: String) {
-        sjStepperView.iterableThrought = .month
+    func upButtonTapped(value: Int) {
+        setDate(value: value)
     }
-    
-    
 }
+

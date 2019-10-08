@@ -52,8 +52,8 @@ class ViewController: BaseViewController {
         stepper.title = "Uruur"
         stepper.upButtonImage = UIImage(named: "up")
         stepper.downButtonImage = UIImage(named: "down")
-        stepper.setTitle(text: "Wend 27.04")
         navigationItem.titleView = stepper
+        stepper.setTitle(text: "Wend 27.04")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,7 +105,7 @@ extension ViewController {
         lineChart.xAxis.removeAllLimitLines()
         lineChart.rightAxis.removeAllLimitLines()
         lineChart.isUserInteractionEnabled = false
-        
+        lineChart.minOffset = 0
         self.lineChart.data = lineChartData
     }
 }

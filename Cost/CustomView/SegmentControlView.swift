@@ -101,7 +101,10 @@ class SegmentControlView: UIView {
             btn.setTitleColor(textColor, for: .normal)
             if btn == sender {
                 let selectorPosition = frame.width / CGFloat(buttonTitiles.count) * CGFloat(buttonIndex)
+                
+                guard _selectedIndex != buttonIndex else { return }
                 delegate?.changeToIndex(index: buttonIndex)
+                _selectedIndex = buttonIndex
                 UIView.animate(withDuration: 0.3) {
                     self.selectorView.frame.origin.x = selectorPosition
                 }

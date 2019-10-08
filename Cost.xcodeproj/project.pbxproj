@@ -52,6 +52,10 @@
 		EDE5813E234238810068F0F1 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5813D234238810068F0F1 /* CurrencyViewController.swift */; };
 		EDE5814223423C420068F0F1 /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5814123423C420068F0F1 /* JsonConverter.swift */; };
 		EDEA7C2D234B6A1B00320295 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEA7C2C234B6A1B00320295 /* SyncManager.swift */; };
+		EDF3C405234CA2DD00A0359C /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C404234CA2DD00A0359C /* DateManager.swift */; };
+		EDF3C407234CA3B600A0359C /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */; };
+		EDF3C40A234CA4CB00A0359C /* IterableDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C409234CA4CB00A0359C /* IterableDate.swift */; };
+		EDF3C40C234CB1A300A0359C /* Date+Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C40B234CB1A300A0359C /* Date+Calc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +110,10 @@
 		EDE5813D234238810068F0F1 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		EDE5814123423C420068F0F1 /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
 		EDEA7C2C234B6A1B00320295 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		EDF3C404234CA2DD00A0359C /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
+		EDF3C409234CA4CB00A0359C /* IterableDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterableDate.swift; sourceTree = "<group>"; };
+		EDF3C40B234CB1A300A0359C /* Date+Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Calc.swift"; sourceTree = "<group>"; };
 		FD13C2A4330F1128C0EA88E3 /* Pods-Cost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cost.release.xcconfig"; path = "Target Support Files/Pods-Cost/Pods-Cost.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +161,7 @@
 		70102541232F671A00EEE983 /* Cost */ = {
 			isa = PBXGroup;
 			children = (
+				EDF3C403234CA2C000A0359C /* DateManager */,
 				EDEA7C2B234B6A0D00320295 /* Sync */,
 				EDE5814023423C420068F0F1 /* Converters */,
 				ED252CF42340B1DE00378D9C /* Storage */,
@@ -219,6 +228,8 @@
 				70DCFAB5233395B5001FE103 /* Category.swift */,
 				ED252CF72340BE9C00378D9C /* StorageKeys.swift */,
 				ED252D012340D83D00378D9C /* UserCategories.swift */,
+				EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */,
+				EDF3C409234CA4CB00A0359C /* IterableDate.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -324,6 +335,7 @@
 				EDB6B43E23352E1C0028E39F /* UIView+AddShadow.swift */,
 				ED87F9E72344B19F00F70536 /* UIViewController+ShowAlert.swift */,
 				ED87F9EF2344CF0F00F70536 /* UIView+BlurLoader.swift */,
+				EDF3C40B234CB1A300A0359C /* Date+Calc.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +355,14 @@
 				EDEA7C2C234B6A1B00320295 /* SyncManager.swift */,
 			);
 			path = Sync;
+			sourceTree = "<group>";
+		};
+		EDF3C403234CA2C000A0359C /* DateManager */ = {
+			isa = PBXGroup;
+			children = (
+				EDF3C404234CA2DD00A0359C /* DateManager.swift */,
+			);
+			path = DateManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,17 +498,21 @@
 				ED252CFC2340CB1500378D9C /* ConfigurableTableViewHeight.swift in Sources */,
 				ED9406D62338D50600D2EB5A /* RequestManager.swift in Sources */,
 				ED87F9E82344B19F00F70536 /* UIViewController+ShowAlert.swift in Sources */,
+				EDF3C40C234CB1A300A0359C /* Date+Calc.swift in Sources */,
 				ED9406DE2338E67A00D2EB5A /* CategoryCollectionViewCell.swift in Sources */,
 				ED9406DB2338D87500D2EB5A /* CategoryModel.swift in Sources */,
 				70AE2D98232F9DBE0006051E /* StatisticViewController.swift in Sources */,
 				ED5CAB2C234375B80013A9C8 /* UserModel.swift in Sources */,
+				EDF3C407234CA3B600A0359C /* DaysOfWeek.swift in Sources */,
 				ED87F9EA2344B9D200F70536 /* Utils.swift in Sources */,
 				ED5CAB2A234353EF0013A9C8 /* RegistrationViewController.swift in Sources */,
 				70102545232F671B00EEE983 /* ViewController.swift in Sources */,
 				70102543232F671B00EEE983 /* AppDelegate.swift in Sources */,
 				ED9406D32338D4AE00D2EB5A /* Networking.swift in Sources */,
 				ED5CAB28234353B50013A9C8 /* LoginViewController.swift in Sources */,
+				EDF3C40A234CA4CB00A0359C /* IterableDate.swift in Sources */,
 				70AE2D9F232FB1EA0006051E /* ConfigurableNavigationBar.swift in Sources */,
+				EDF3C405234CA2DD00A0359C /* DateManager.swift in Sources */,
 				70DCFAB2233389EB001FE103 /* PieChartDelegate.swift in Sources */,
 				70AE2D9A232FAD380006051E /* SettingsViewController.swift in Sources */,
 				ED5CAB2F234376670013A9C8 /* UserRegistrationModel.swift in Sources */,
