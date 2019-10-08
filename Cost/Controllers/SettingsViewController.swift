@@ -60,11 +60,11 @@ extension SettingsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch settingsText[indexPath.row] {
         case settingsText[0]:
-            self.performSegue(withIdentifier: "currency", sender: self)
+            self.performSegue(withIdentifier: "currency", sender: nil)
         case settingsText[1]:
-            self.performSegue(withIdentifier: "weekStart", sender: self)
+            self.performSegue(withIdentifier: "weekStart", sender: nil)
         case settingsText[2]:
-            self.performSegue(withIdentifier: "languages", sender: self)
+            self.performSegue(withIdentifier: "languages", sender: nil)
             
         default:
             print("incorrect identifier")

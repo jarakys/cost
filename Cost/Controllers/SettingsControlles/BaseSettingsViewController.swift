@@ -34,11 +34,24 @@ class BaseSettingsViewController: BaseViewController, ConfigurableTableViewHeigh
     }
 
     override func configureNavigationBar() {
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = .white
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+            //appearance.shadowImage = UIImage(named: "")
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.compactAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+        else {
+            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+            //self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
+        }
+        self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.tintColor = .black
-        self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
     }
     
     /*

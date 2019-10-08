@@ -18,6 +18,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
+        //
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let vc : UIViewController = storyBoard.instantiateViewController(withIdentifier: "mainController")
+        print(vc)
+        self.navigationController?.pushViewController(vc, animated: true)
+        //self.navigationController?.popViewController(animated: true)
+
         
         return
         

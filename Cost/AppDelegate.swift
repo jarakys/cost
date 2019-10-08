@@ -16,13 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "basic") as! UINavigationController
+        var vc : UIViewController
+        self.window?.rootViewController = rootController
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
         let storageManager = StorageManager()
         if  storageManager.getData(key: .user) == nil {
-            let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "registerViewController")
-            self.window?.rootViewController = rootController
-            //TODO Segue for
+            vc = storyBoard.instantiateViewController(withIdentifier: "registerViewController")
         }
-        
+        else {
+            vc = storyBoard.instantiateViewController(withIdentifier: "mainController")
+        }
+        rootController.pushViewController(vc, animated: true)
         return true
     }
 
