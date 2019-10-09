@@ -14,7 +14,7 @@ enum Category : Int {
     case Costs
     
     func string() -> String {
-        return String(describing: self).uppercased()
+        return  String(describing: self).lowercased().localizedString()
     }
     
     func index() -> Int {

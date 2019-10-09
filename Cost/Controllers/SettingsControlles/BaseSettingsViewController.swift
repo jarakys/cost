@@ -15,6 +15,7 @@ class BaseSettingsViewController: BaseViewController, ConfigurableTableViewHeigh
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableViewHeight()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         // Do any additional setup after loading the view.
     }
     

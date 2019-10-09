@@ -5,3 +5,31 @@
   Created by Kirill on 9/29/19.
   Copyright © 2019 com.cost.app. All rights reserved.
 */
+"saturday" = "يوم السبت";
+"sunday" = "الأحد";
+"monday" = "الإثنين";
+"tuesday" = "الثلاثاء";
+"wednesday" = "الأربعاء";
+"thursday" = "الخميس";
+"friday" = "يوم الجمعة";
+"balance" = "توازن";
+"earn" = "كسب";
+"costs" = "التكاليف";
+"General" = "جنرال لواء";
+"Groceries" = "محلات البقالة";
+"Food" = "طعام";
+"Drinks" = "مشروبات";
+"Shopping" = "التسوق";
+"Personal" = "شخصي";
+"Entertain" = "ترفيه";
+"Movies" = "أفلام";
+"Social" = "اجتماعي";
+"Transport" = "المواصلات";
+"App Store" = "متجر التطبيقات";
+"Mobile" = "التليفون المحمول";
+"Computer" = "الحاسوب";
+"Gifts" = "الهدايا";
+"Housing" = "الإسكان";
+"day" = "يوم";
+"week" = "أسبوع";
+"month" = "شهر";

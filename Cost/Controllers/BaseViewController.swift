@@ -12,6 +12,7 @@ class BaseViewController: UIViewController, ConfigurableNavigationBar {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.navigationController?.setNavigationBarHidden(false, animated: true)
         // Do any additional setup after loading the view.
     }
     
@@ -21,6 +22,7 @@ class BaseViewController: UIViewController, ConfigurableNavigationBar {
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
+        
     }
     
     

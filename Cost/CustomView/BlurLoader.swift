@@ -15,7 +15,9 @@ class BlurLoader: UIView {
     override init(frame: CGRect) {
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        
         blurEffectView.frame = frame
+        print(frame)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.blurEffectView = blurEffectView
         super.init(frame: frame)

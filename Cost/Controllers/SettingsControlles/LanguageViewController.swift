@@ -65,5 +65,12 @@ extension LanguageViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         storageManager.saveData(data: indexPath.row.description, key: .language)
+        if indexPath.row == 0 {
+            Bundle.setLanguage(lang: "en")
+        }
+        else {
+            Bundle.setLanguage(lang: "ar")
+        }
+        
     }
 }

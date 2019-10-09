@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         // Do any additional setup after loading the view.
     }
     
@@ -21,13 +23,6 @@ class LoginViewController: UIViewController {
         //
         let storyBoard = UIStoryboard(name: "Main", bundle:nil)
         let vc : UIViewController = storyBoard.instantiateViewController(withIdentifier: "mainController")
-        print(vc)
-        self.navigationController?.pushViewController(vc, animated: true)
-        //self.navigationController?.popViewController(animated: true)
-
-        
-        return
-        
         if passwordField.text == "" || usernameField.text == "" {
             showAlert(title: "Error", message: "Empty fields")
             return
@@ -48,7 +43,7 @@ class LoginViewController: UIViewController {
                     let json  = try! JsonConverter.toString(value: response.value!)
                     let storageManager = StorageManager()
                     storageManager.saveData(data: json, key: .user)
-                    //self.performSegue(withIdentifier: "mainScreenSegue", sender: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
                     return
                 }
                 else if response.response?.statusCode == 404 {

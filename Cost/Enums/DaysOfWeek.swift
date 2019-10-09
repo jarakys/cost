@@ -22,9 +22,9 @@ enum DaysOfWeek : Int {
     func index() -> Int {
         return self.rawValue
     }
-    
+   
     func string() -> String {
-        
+        return String(describing: self).lowercased().localizedString()
     }
     
 }

@@ -28,7 +28,7 @@ class StatisticViewController: BaseViewController {
     @IBOutlet weak var segmentControlView: SegmentControlView! {
         didSet {
             self.segmentControlView.delegate = self
-            self.segmentControlView.setButtonTitiles(buttonTitiles: ["TODAY","WEEK","MONTH"])
+            self.segmentControlView.setButtonTitiles(buttonTitiles: [IterableDate.day.string(),IterableDate.week.string(),IterableDate.month.string()])
             let color = currentCategory.color()
             self.segmentControlView.textColor = .lightGray
             self.segmentControlView.selectorTextColor = .black

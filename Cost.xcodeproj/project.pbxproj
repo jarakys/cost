@@ -49,6 +49,8 @@
 		EDB6B43B2335279F0028E39F /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6B43A2335279F0028E39F /* UIView+RoundCorners.swift */; };
 		EDB6B43D233529720028E39F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6B43C233529720028E39F /* CategoryViewController.swift */; };
 		EDB6B43F23352E1C0028E39F /* UIView+AddShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6B43E23352E1C0028E39F /* UIView+AddShadow.swift */; };
+		EDC28BE9234DC224005CD2E2 /* Bundle+SetLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */; };
+		EDC28BEB234DC62F005CD2E2 /* String+Locaized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */; };
 		EDE5813E234238810068F0F1 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5813D234238810068F0F1 /* CurrencyViewController.swift */; };
 		EDE5814223423C420068F0F1 /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5814123423C420068F0F1 /* JsonConverter.swift */; };
 		EDEA7C2D234B6A1B00320295 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEA7C2C234B6A1B00320295 /* SyncManager.swift */; };
@@ -107,6 +109,8 @@
 		EDB6B43A2335279F0028E39F /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		EDB6B43C233529720028E39F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		EDB6B43E23352E1C0028E39F /* UIView+AddShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddShadow.swift"; sourceTree = "<group>"; };
+		EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SetLanguage.swift"; sourceTree = "<group>"; };
+		EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Locaized.swift"; sourceTree = "<group>"; };
 		EDE5813D234238810068F0F1 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		EDE5814123423C420068F0F1 /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
 		EDEA7C2C234B6A1B00320295 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 				ED87F9E72344B19F00F70536 /* UIViewController+ShowAlert.swift */,
 				ED87F9EF2344CF0F00F70536 /* UIView+BlurLoader.swift */,
 				EDF3C40B234CB1A300A0359C /* Date+Calc.swift */,
+				EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */,
+				EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,6 +534,8 @@
 				ED87F9F02344CF0F00F70536 /* UIView+BlurLoader.swift in Sources */,
 				ED252CF1233FE55900378D9C /* WeekStartOnViewController.swift in Sources */,
 				EDE5813E234238810068F0F1 /* CurrencyViewController.swift in Sources */,
+				EDC28BE9234DC224005CD2E2 /* Bundle+SetLanguage.swift in Sources */,
+				EDC28BEB234DC62F005CD2E2 /* String+Locaized.swift in Sources */,
 				ED252CF82340BE9C00378D9C /* StorageKeys.swift in Sources */,
 				EDB6B4382334E1F60028E39F /* SJStepperView.swift in Sources */,
 				ED252CF62340B20A00378D9C /* StorageManager.swift in Sources */,

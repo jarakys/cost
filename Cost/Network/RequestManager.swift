@@ -11,7 +11,7 @@ import Alamofire
 struct RequestManager : Networking {
 
     
-    static let URL:String = "http://frostiq-001-site1.gtempurl.com/api/"
+    static let URL:String = "http://starov88-001-site10.itempurl.com/api/"
     
     func register(user: UserRegistrationModel, complition: @escaping (_ response: DataResponse<Any,AFError>)->Void) {
         AF.request(RequestManager.URL + "account/registration",

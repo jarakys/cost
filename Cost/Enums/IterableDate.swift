@@ -12,4 +12,8 @@ enum IterableDate : Int {
     case day
     case week
     case month
+    
+    func string() -> String {
+        return String(describing: self).lowercased().localizedString()
+    }
 }

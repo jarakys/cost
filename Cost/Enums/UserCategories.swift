@@ -26,11 +26,15 @@ enum UserCategories : String, CaseIterable {
     case housing = "Housing"
     
     func string() ->String {
-        return self.rawValue
+        return self.rawValue.localizedString()
+    }
+    
+    private func imageName() -> String {
+         return self.rawValue
     }
     
     func image() -> String {
-        return self.string().replacingOccurrences(of: " ", with: "").lowercased()
+        return self.imageName().replacingOccurrences(of: " ", with: "").lowercased()
     }
     
     
