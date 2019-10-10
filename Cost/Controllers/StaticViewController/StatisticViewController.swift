@@ -10,6 +10,7 @@ import UIKit
 import Charts
 class StatisticViewController: BaseViewController {
     
+    @IBOutlet weak var indicator: UIView!
     @IBOutlet weak var chart: PieChartView!
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var category: UILabel!
@@ -39,19 +40,21 @@ class StatisticViewController: BaseViewController {
     var dataOne = PieChartDataEntry(value: 0, label: "", data: "")
     private var dataTwo = PieChartDataEntry(value: 0, label: "Буд")
     private var dataThree = PieChartDataEntry(value: 0, label: "Буд")
-    private var numberOfDown = [PieChartDataEntry]()
-    private var testValue = ["1200  \n BALANCE","300 \n EARN","250 \n COSTS"]
-    private var statTest = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
-    private var source = [Statistic(id: 1, income: 145, costs: 0, category:"Computer"), Statistic(id: 2, income: 123, costs: 0, category: "Job"), Statistic(id: 3, income: 0, costs: 123, category: "Eat"), Statistic(id: 4, income: 0, costs: 133, category: "Car")]
+    private var categoryLenend = [PieChartDataEntry]()
+    
+    private var statistic:Statistic?
+    
+    private var statTest:[StatisticItem] = []
+    private var source:[StatisticItem] = []
     private let storageManager = StorageManager()
+    private let requestManager = RequestManager()
     var currentCategory: Category = .Balance
     private var iterableThrought: IterableDate = .day
     private var firstDayInWeek: DaysOfWeek!
+    private var startDate = Date()
+    private var endDate = Date()
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateSource()
-        configureUI()
-        configurePieChart()
         firstDayInWeek =  DaysOfWeek(rawValue: Int(storageManager.getData(key: .weekStartOn)!)!)
         setDate(value: 0)
         
@@ -64,10 +67,14 @@ class StatisticViewController: BaseViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.lightGray]
         
     }
+    
+    deinit {
+        print("deinit")
+    }
 
     
-    func configureUI() {
-        value.text = "120.00"
+    func configureUI(count: String) {
+        value.text = count + " €"
         value.textColor = currentCategory.color()
         category.text = currentCategory.string()
     }
@@ -76,19 +83,36 @@ class StatisticViewController: BaseViewController {
 
 // Configurations
 extension StatisticViewController {
-    private func configurePieChart() {
-        dataOne.value = 20
-        dataTwo.value = 50
-        dataThree.value = 33
+    private func configurePieChart(source: Statistic) {
+        let earned = source.dailyReportItem.reduce(0, { (result, item) -> Float in
+            if item.costs == 0 {
+                return result + item.income
+            }
+            return result
+        })
+        
+        let costs = source.dailyReportItem.reduce(0, { (result, item) -> Float in
+            if item.income == 0 {
+                return result + item.costs
+            }
+            return result
+        })
+        
+        print(earned-costs)
+         print(costs)
+         print(earned)
+        
+        dataOne.value = Double((earned-costs) != 0 ? (earned-costs) : 30)
+        dataTwo.value =  Double(costs != 0 ? costs : 30)
+        dataThree.value = Double(earned != 0 ? costs : 30)
         chart.drawMarkers = false
         chart.usePercentValuesEnabled = true
         chart.backgroundColor = .white
         chart.layer.masksToBounds = true
         chart.layer.cornerRadius = 10
         chart.rotationEnabled = false
-        numberOfDown = [dataOne,dataTwo,dataThree]
-        let charDataSet = PieChartDataSet(entries: numberOfDown, label: nil)
-        
+        categoryLenend = [dataOne,dataTwo,dataThree]
+        let charDataSet = PieChartDataSet(entries: categoryLenend, label: nil)
         let chartData = PieChartData(dataSet: charDataSet)
         let colors = [Category.Balance.color(),Category.Costs.color(), Category.Earn.color()]
         charDataSet.colors = colors
@@ -100,30 +124,82 @@ extension StatisticViewController {
         chart.data = chartData
     }
     
-    private func updateSource(){
+    private func updateTableViewSource(data: Statistic) {
         switch currentCategory {
         case .Balance:
-            source = statTest
+            source = data.dailyReportItem
         case .Costs:
-            source = statTest.filter {
+            source = data.dailyReportItem.filter {
                 $0.income == 0 && $0.costs > 0
             }
         case .Earn:
-            source = statTest.filter{
+            source = data.dailyReportItem.filter{
                 $0.income > 0 && $0.costs == 0
             }
         }
+        categoryTableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+            self.indicator.removeBluerLoader()
+        })
     }
+    
+    private func updateChartData() {
+        let json  = storageManager.getData(key: .user)
+        let user: UserModel = JsonConverter.jsonToObject(stringJson: json!)!
+        requestManager.getStatistics(dateStart: startDate, dateEnd: endDate, statisticType: Category.Balance, token: user.token) {[unowned self] response  in
+            
+            switch response.result {
+            case .failure:
+                self.showAlert(title: "Error", message: "Check internet connection")
+                self.indicator.removeBluerLoader()
+            case .success:
+                if response.response?.statusCode == 200 {
+                    let statisticJson = try! JsonConverter.toString(value: response.value)
+                    let source:Statistic = JsonConverter.jsonToObject(stringJson: statisticJson)
+                    self.configurePieChart(source: source)
+                }
+                else {
+                    self.showAlert(title: "Error", message: "Server Error")
+                    self.indicator.removeBluerLoader()
+                }
+            }
+        }
+    }
+    
+    private func updateTableData() {
+        indicator.showBlurLoader()
+        
+        let json  = storageManager.getData(key: .user)
+        let user: UserModel = JsonConverter.jsonToObject(stringJson: json!)!
+        requestManager.getStatistics(dateStart: startDate, dateEnd: endDate, statisticType: currentCategory, token: user.token) {[unowned self] response  in
+            
+            switch response.result {
+            case .failure:
+                self.showAlert(title: "Error", message: "Check internet connection")
+                self.indicator.removeBluerLoader()
+            case .success:
+                if response.response?.statusCode == 200 {
+                    let statisticJson = try! JsonConverter.toString(value: response.value)
+                    self.statistic = JsonConverter.jsonToObject(stringJson: statisticJson)
+                    self.updateTableViewSource(data: self.statistic!)
+                    self.configureUI(count: self.statistic!.totalCost.description)
+                }
+                else {
+                    self.showAlert(title: "Error", message: "Server Error")
+                    self.indicator.removeBluerLoader()
+                }
+            }
+        }
+    }    
 }
 
 // Actions
 extension StatisticViewController {
 
     @IBAction func chartClicj(_ sender: Any) {
-        currentCategory = Category(rawValue: currentCategory.index() >= testValue.count-1 ? 0 : currentCategory.index()+1)!
+        currentCategory = Category(rawValue: currentCategory.index() >= Category.allCases.count - 1 ? 0 : currentCategory.index()+1)!
         updateUI()
-        updateSource()
-        categoryTableView.reloadData()
+        updateTableData()
     }
     
 }
@@ -143,15 +219,21 @@ extension StatisticViewController {
         var title = ""
         switch iterableThrought {
         case .day:
-            title = Date().getDateByOffset(offset: value).getDescription()
+            startDate = Date().getDateByOffset(offset: value)
+            endDate = startDate
+            title = startDate.getDescription()
+            
         case .month:
             break
         case .week:
-            let date = Date().addDaysToDate(weekOffset: value).startAndEndOfWeek(dayOfWeek: firstDayInWeek).start
-            print(date)
-            title = date.getDescription()
+            let date = Date().addDaysToDate(weekOffset: value).startAndEndOfWeek(dayOfWeek: firstDayInWeek)
+            startDate = date.start
+            endDate = date.end
+            title = startDate.getDescription() + "-" + endDate.getDescription()
         }
         sjStepperView.setTitle(text: title)
+        updateTableData()
+        updateChartData()
     }
     
 }
@@ -166,12 +248,30 @@ extension StatisticViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
         
         if let label = cell.viewWithTag(1) as? UILabel {
-            label.textColor = currentCategory.color()
-            label.text = source[indexPath.row].category
+            label.textColor = setColor(item: source[indexPath.row])
+            label.text = UserCategories.allCases[source[indexPath.row].categoryName].string()
+        }
+        if let image = cell.viewWithTag(2) as? UIImageView {
+            image.image =  UIImage(named:UserCategories.allCases[source[indexPath.row].categoryName].image())?.withRenderingMode(.alwaysTemplate)
+            image.tintColor = setColor(item: source[indexPath.row])
+        }
+        if let money = cell.viewWithTag(3) as? UILabel {
+            money.text = source[indexPath.row].costs == 0 ? source[indexPath.row].income.description :  source[indexPath.row].costs.description
+            money.text! += " €"
         }
         return cell
         
     }
+    
+    private func setColor(item: StatisticItem) ->UIColor {
+        if item.costs == 0 {
+            return Category.Earn.color()
+        }
+        else {
+            return Category.Costs.color()
+        }
+    }
+    
 }
 
 extension StatisticViewController : UITableViewDelegate {

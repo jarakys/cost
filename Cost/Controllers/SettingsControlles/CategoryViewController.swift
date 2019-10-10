@@ -23,12 +23,24 @@ class CategoryViewController: BaseViewController {
             self.moneyTextField.delegate = self
         }
     }
-    weak var currentCell: CategoryCollectionViewCell?
+    
+    private var topbarHeight: CGFloat {
+        if #available(iOS 13.0, *) {
+            return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) +
+                (self.navigationController?.navigationBar.frame.height ?? 0.0)
+        } else {
+            return 0// Fallback on earlier versions
+        }
+    }
+    
+    private weak var currentCell: CategoryCollectionViewCell?
     var currentCategory: Category = .Earn
-    var selectedSubCategory: UserCategories?
-    let buttonTitles = [Category.Earn.string().uppercased(),Category.Costs.string().uppercased()]
-    let networkManager = RequestManager()
-    var categories = UserCategories.allCases
+    private var selectedSubCategory: UserCategories?
+    private let buttonTitles = [Category.Earn.string().uppercased(),Category.Costs.string().uppercased()]
+    private let requestManager = RequestManager()
+    private let storageManager = StorageManager()
+    private var categories = UserCategories.allCases
+    private var selectedCategoryIndex:Int = 0
     @IBOutlet weak var segmenetControlView: SegmentControlView! {
         didSet {
             self.segmenetControlView.delegate = self
@@ -47,10 +59,18 @@ class CategoryViewController: BaseViewController {
         categoryCollectionView.reloadData()
         moneyTextField.layer.cornerRadius = 20
         moneyTextField.layer.masksToBounds = true
+        moneyTextField.returnKeyType = .done
+        addDoneButtonOnKeyboard()
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: moneyTextField.frame.size.height))
         moneyTextField.leftView = paddingView
         moneyTextField.leftViewMode = .always
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -142,15 +162,87 @@ extension CategoryViewController : UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
         cell.colorSelectedItem = currentCategory.color()
         currentCell = cell
+        selectedCategoryIndex = indexPath.row
         selectedSubCategory = categories[indexPath.row]
         makePrefix(prefix: selectedSubCategory!.string())
     }
 }
 
+//KEYBOARD extension
+extension CategoryViewController {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if self.view.frame.origin.y == topbarHeight {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func addDoneButtonOnKeyboard() {
+          let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        moneyTextField.inputAccessoryView = doneToolbar
+      }
+
+      
+
+      @objc func doneButtonAction() {
+        moneyTextField.resignFirstResponder()
+        let userJson = storageManager.getData(key: .user)!
+        let user:UserModel = JsonConverter.jsonToObject(stringJson: userJson)
+        var model: BaseDailyModel!
+        guard let countMoney = moneyTextField.text else {
+            showAlert(title: "Error", message: "Enter value")
+            return
+        }
+        guard  moneyTextField!.text != nil  else {
+            showAlert(title: "Error", message: "Enter value")
+            return
+        }
+        guard selectedSubCategory != nil else {
+            showAlert(title: "Error", message: "Select category")
+            return
+        }
+        guard let currenciesJSON = storageManager.getData(key: .currencyList) else { showAlert(title: "Error", message: "Select your currency in Settings"); return }
+        let currencyIndex = Int(storageManager.getData(key: .currency)!)!
+        
+        let currencies:[Currency] = JsonConverter.jsonToObject(stringJson: currenciesJSON)!
+        
+        let moneyText = countMoney.replacingOccurrences(of: selectedSubCategory!.string()+": ", with: "")
+        switch currentCategory {
+        case .Costs:
+            model = CostsModel(categoryId: selectedCategoryIndex.description, date: Date().getDescription(formattingStyle: "YYYY/MM/dd"), description: "", currencyBase: currencies[currencyIndex].id, currency: "EUR", costs: moneyText)
+        case .Earn:
+            model = EarnModel(categoryId: selectedCategoryIndex.description, date: Date().getDescription(formattingStyle: "YYYY/MM/dd"), description: "", currencyBase: "EUR" , currency: currencies[currencyIndex].id, earn: moneyText)
+        case .Balance:
+            break
+        }
+        debugPrint(model)
+        
+        requestManager.sendDailyReport(model: model, token: user.token, complition: {response in
+                debugPrint(response)
+            
+        })
+        
+      }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != topbarHeight {
+            self.view.frame.origin.y = topbarHeight
+        }
+    }
+}
+
+
+
 extension CategoryViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //This makes the new text black.
-        //textField.typingAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         let protectedRange = NSMakeRange(0, (selectedSubCategory?.string().count ?? -2)+2)
         let intersection = NSIntersectionRange(protectedRange, range)
         if intersection.length > 0 {

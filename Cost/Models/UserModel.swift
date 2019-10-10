@@ -12,5 +12,5 @@ struct UserModel : Codable {
     let email: String
     let id: Int
     let name: String
-    let token: Int
+    let token: String
 }

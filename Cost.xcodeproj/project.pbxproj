@@ -17,7 +17,7 @@
 		70AE2D9F232FB1EA0006051E /* ConfigurableNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE2D9E232FB1EA0006051E /* ConfigurableNavigationBar.swift */; };
 		70DCFAB2233389EB001FE103 /* PieChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCFAB1233389EB001FE103 /* PieChartDelegate.swift */; };
 		70DCFAB6233395B5001FE103 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCFAB5233395B5001FE103 /* Category.swift */; };
-		70DCFAB92333B93E001FE103 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCFAB82333B93E001FE103 /* Statistic.swift */; };
+		70DCFAB92333B93E001FE103 /* StatisticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCFAB82333B93E001FE103 /* StatisticItem.swift */; };
 		ED252CEE233FE02B00378D9C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED252CED233FE02B00378D9C /* Currency.swift */; };
 		ED252CF1233FE55900378D9C /* WeekStartOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED252CF0233FE55900378D9C /* WeekStartOnViewController.swift */; };
 		ED252CF3233FF01900378D9C /* BaseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED252CF2233FF01900378D9C /* BaseSettingsViewController.swift */; };
@@ -51,9 +51,16 @@
 		EDB6B43F23352E1C0028E39F /* UIView+AddShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6B43E23352E1C0028E39F /* UIView+AddShadow.swift */; };
 		EDC28BE9234DC224005CD2E2 /* Bundle+SetLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */; };
 		EDC28BEB234DC62F005CD2E2 /* String+Locaized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */; };
+		EDC28BED234DD480005CD2E2 /* StatisticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BEC234DD480005CD2E2 /* StatisticType.swift */; };
 		EDE5813E234238810068F0F1 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5813D234238810068F0F1 /* CurrencyViewController.swift */; };
 		EDE5814223423C420068F0F1 /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5814123423C420068F0F1 /* JsonConverter.swift */; };
 		EDEA7C2D234B6A1B00320295 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEA7C2C234B6A1B00320295 /* SyncManager.swift */; };
+		EDEAA60F234E044200EB2145 /* BaseDailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA60E234E044200EB2145 /* BaseDailyModel.swift */; };
+		EDEAA611234E059F00EB2145 /* EarnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA610234E059F00EB2145 /* EarnModel.swift */; };
+		EDEAA613234E062100EB2145 /* CostsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA612234E062100EB2145 /* CostsModel.swift */; };
+		EDEAA615234E0FDB00EB2145 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA614234E0FDB00EB2145 /* String+OnlyDigits.swift */; };
+		EDEAA617234E18E200EB2145 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA616234E18E200EB2145 /* Statistic.swift */; };
+		EDEAA619234E27E900EB2145 /* GroupedStatisticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA618234E27E900EB2145 /* GroupedStatisticItem.swift */; };
 		EDF3C405234CA2DD00A0359C /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C404234CA2DD00A0359C /* DateManager.swift */; };
 		EDF3C407234CA3B600A0359C /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */; };
 		EDF3C40A234CA4CB00A0359C /* IterableDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C409234CA4CB00A0359C /* IterableDate.swift */; };
@@ -72,7 +79,7 @@
 		70AE2D9E232FB1EA0006051E /* ConfigurableNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableNavigationBar.swift; sourceTree = "<group>"; };
 		70DCFAB1233389EB001FE103 /* PieChartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartDelegate.swift; sourceTree = "<group>"; };
 		70DCFAB5233395B5001FE103 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		70DCFAB82333B93E001FE103 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
+		70DCFAB82333B93E001FE103 /* StatisticItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticItem.swift; sourceTree = "<group>"; };
 		AD52298A5924695D6E9ACE00 /* Pods-Cost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cost.debug.xcconfig"; path = "Target Support Files/Pods-Cost/Pods-Cost.debug.xcconfig"; sourceTree = "<group>"; };
 		D81195EE898AC2B461EE6D76 /* Pods_Cost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED252CED233FE02B00378D9C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -111,9 +118,16 @@
 		EDB6B43E23352E1C0028E39F /* UIView+AddShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddShadow.swift"; sourceTree = "<group>"; };
 		EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SetLanguage.swift"; sourceTree = "<group>"; };
 		EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Locaized.swift"; sourceTree = "<group>"; };
+		EDC28BEC234DD480005CD2E2 /* StatisticType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticType.swift; sourceTree = "<group>"; };
 		EDE5813D234238810068F0F1 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		EDE5814123423C420068F0F1 /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
 		EDEA7C2C234B6A1B00320295 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		EDEAA60E234E044200EB2145 /* BaseDailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDailyModel.swift; sourceTree = "<group>"; };
+		EDEAA610234E059F00EB2145 /* EarnModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnModel.swift; sourceTree = "<group>"; };
+		EDEAA612234E062100EB2145 /* CostsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsModel.swift; sourceTree = "<group>"; };
+		EDEAA614234E0FDB00EB2145 /* String+OnlyDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+OnlyDigits.swift"; sourceTree = "<group>"; };
+		EDEAA616234E18E200EB2145 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
+		EDEAA618234E27E900EB2145 /* GroupedStatisticItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedStatisticItem.swift; sourceTree = "<group>"; };
 		EDF3C404234CA2DD00A0359C /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
 		EDF3C409234CA4CB00A0359C /* IterableDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterableDate.swift; sourceTree = "<group>"; };
@@ -234,6 +248,7 @@
 				ED252D012340D83D00378D9C /* UserCategories.swift */,
 				EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */,
 				EDF3C409234CA4CB00A0359C /* IterableDate.swift */,
+				EDC28BEC234DD480005CD2E2 /* StatisticType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -242,10 +257,12 @@
 			isa = PBXGroup;
 			children = (
 				ED5CAB2D2343764F0013A9C8 /* RequestModels */,
-				70DCFAB82333B93E001FE103 /* Statistic.swift */,
+				70DCFAB82333B93E001FE103 /* StatisticItem.swift */,
 				ED9406DA2338D87500D2EB5A /* CategoryModel.swift */,
 				ED252CED233FE02B00378D9C /* Currency.swift */,
 				ED5CAB2B234375B80013A9C8 /* UserModel.swift */,
+				EDEAA616234E18E200EB2145 /* Statistic.swift */,
+				EDEAA618234E27E900EB2145 /* GroupedStatisticItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +317,9 @@
 			children = (
 				ED5CAB2E234376670013A9C8 /* UserRegistrationModel.swift */,
 				ED5CAB30234379E00013A9C8 /* UserLoginModel.swift */,
+				EDEAA60E234E044200EB2145 /* BaseDailyModel.swift */,
+				EDEAA610234E059F00EB2145 /* EarnModel.swift */,
+				EDEAA612234E062100EB2145 /* CostsModel.swift */,
 			);
 			path = RequestModels;
 			sourceTree = "<group>";
@@ -342,6 +362,7 @@
 				EDF3C40B234CB1A300A0359C /* Date+Calc.swift */,
 				EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */,
 				EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */,
+				EDEAA614234E0FDB00EB2145 /* String+OnlyDigits.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,12 +515,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEAA617234E18E200EB2145 /* Statistic.swift in Sources */,
 				EDB6B43B2335279F0028E39F /* UIView+RoundCorners.swift in Sources */,
-				70DCFAB92333B93E001FE103 /* Statistic.swift in Sources */,
+				70DCFAB92333B93E001FE103 /* StatisticItem.swift in Sources */,
 				ED252CFE2340D12900378D9C /* LanguageViewController.swift in Sources */,
 				70AE2D9C232FAEB90006051E /* BaseViewController.swift in Sources */,
 				ED252D022340D83D00378D9C /* UserCategories.swift in Sources */,
 				ED5CAB31234379E00013A9C8 /* UserLoginModel.swift in Sources */,
+				EDEAA613234E062100EB2145 /* CostsModel.swift in Sources */,
 				ED87F9EE2344CEF000F70536 /* BlurLoader.swift in Sources */,
 				ED252CFC2340CB1500378D9C /* ConfigurableTableViewHeight.swift in Sources */,
 				ED9406D62338D50600D2EB5A /* RequestManager.swift in Sources */,
@@ -508,15 +531,19 @@
 				ED9406DE2338E67A00D2EB5A /* CategoryCollectionViewCell.swift in Sources */,
 				ED9406DB2338D87500D2EB5A /* CategoryModel.swift in Sources */,
 				70AE2D98232F9DBE0006051E /* StatisticViewController.swift in Sources */,
+				EDC28BED234DD480005CD2E2 /* StatisticType.swift in Sources */,
 				ED5CAB2C234375B80013A9C8 /* UserModel.swift in Sources */,
+				EDEAA619234E27E900EB2145 /* GroupedStatisticItem.swift in Sources */,
 				EDF3C407234CA3B600A0359C /* DaysOfWeek.swift in Sources */,
 				ED87F9EA2344B9D200F70536 /* Utils.swift in Sources */,
 				ED5CAB2A234353EF0013A9C8 /* RegistrationViewController.swift in Sources */,
 				70102545232F671B00EEE983 /* ViewController.swift in Sources */,
+				EDEAA60F234E044200EB2145 /* BaseDailyModel.swift in Sources */,
 				70102543232F671B00EEE983 /* AppDelegate.swift in Sources */,
 				ED9406D32338D4AE00D2EB5A /* Networking.swift in Sources */,
 				ED5CAB28234353B50013A9C8 /* LoginViewController.swift in Sources */,
 				EDF3C40A234CA4CB00A0359C /* IterableDate.swift in Sources */,
+				EDEAA615234E0FDB00EB2145 /* String+OnlyDigits.swift in Sources */,
 				70AE2D9F232FB1EA0006051E /* ConfigurableNavigationBar.swift in Sources */,
 				EDF3C405234CA2DD00A0359C /* DateManager.swift in Sources */,
 				70DCFAB2233389EB001FE103 /* PieChartDelegate.swift in Sources */,
@@ -525,6 +552,7 @@
 				EDE5814223423C420068F0F1 /* JsonConverter.swift in Sources */,
 				EDB6B4362334B5D40028E39F /* SegmentControlView.swift in Sources */,
 				EDB6B43D233529720028E39F /* CategoryViewController.swift in Sources */,
+				EDEAA611234E059F00EB2145 /* EarnModel.swift in Sources */,
 				EDEA7C2D234B6A1B00320295 /* SyncManager.swift in Sources */,
 				ED252CF3233FF01900378D9C /* BaseSettingsViewController.swift in Sources */,
 				ED252CEE233FE02B00378D9C /* Currency.swift in Sources */,
@@ -693,6 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77UT86MNKK;
 				INFOPLIST_FILE = Cost/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,6 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77UT86MNKK;
 				INFOPLIST_FILE = Cost/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

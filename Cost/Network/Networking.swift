@@ -18,7 +18,8 @@ protocol Networking {
     
     func logIn(user: UserLoginModel, complition: @escaping (_ response: DataResponse<Any,AFError>)->Void)
     
-    func getDailyReport(currecncyBase: String, currency: String, complition: @escaping (_ data: DataResponse<Any, AFError>)->Void)
-    
+    func sendDailyReport(model: BaseDailyModel, token:String, complition: @escaping (_ data: DataResponse<Any, AFError>)->Void)
+     
+    func getStatistics(dateStart: Date, dateEnd: Date, statisticType: Category, token: String, complition: @escaping (_ response: DataResponse<Any,AFError>)->Void)
     
 }

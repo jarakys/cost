@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
         let requestManager = RequestManager()
         self.view.showBlurLoader()
         requestManager.logIn(user: user, complition: {response in
+            debugPrint(response)
             switch response.result {
             case .failure:
                 self.showAlert(title: "Error", message: "Server not available")

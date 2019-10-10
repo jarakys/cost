@@ -11,7 +11,11 @@ import Charts
 
 class ViewController: BaseViewController {
 
+    @IBOutlet weak var symbolImage: UIImageView!
+    @IBOutlet weak var cardMoneyLabel: UILabel!
+    @IBOutlet weak var moneyBottomLabel: UILabel!
     @IBOutlet weak var floatButton: UIButton!
+    @IBOutlet weak var cardDate: UILabel!
     @IBOutlet weak var categoryImageVIew: UIImageView!
     @IBOutlet weak var segmentControlView: SegmentControlView! {
         didSet {
@@ -31,12 +35,15 @@ class ViewController: BaseViewController {
     private var lineChartDataSet: LineChartDataSet!
     private var lineChartData: LineChartData!
     private var currentCategory = Category.Balance
-
+    private let requestManager = RequestManager()
+    private let storageManager = StorageManager()
+    private var selectedDate: Date = Date()
     override func viewDidLoad() {
         super.viewDidLoad()
         let color = currentCategory.color()
         floatButton.backgroundColor = color
         configureChart()
+        getData()
     }
     
     override func configureNavigationBar() {
@@ -64,6 +71,29 @@ class ViewController: BaseViewController {
             vc.currentCategory = self.currentCategory
         }
     }
+    
+    private func getData() {
+        let json  = storageManager.getData(key: .user)
+        let user: UserModel = JsonConverter.jsonToObject(stringJson: json!)!
+        requestManager.getStatistics(dateStart: selectedDate, dateEnd: selectedDate, statisticType: currentCategory, token: user.token, complition: { response in
+            switch response.result {
+            case .failure:
+                self.showAlert(title: "Error", message: "Check internet connection")
+            case .success:
+                if response.response?.statusCode == 200 {
+                    debugPrint(response)
+                    let statisticJson = try! JsonConverter.toString(value: response.value)
+                    let statistic:Statistic = JsonConverter.jsonToObject(stringJson: statisticJson)
+                    self.updateMoneyLabel(value: statistic.totalCost.description)
+                }
+                else {
+                    debugPrint(response)
+                    self.showAlert(title: "Error", message: "Server Error")
+                }
+            }
+        })
+    }
+    
 }
 
 extension ViewController {
@@ -112,17 +142,18 @@ extension ViewController : SegmentControlDelegate {
     func changeToIndex(index: Int) {
         currentCategory = Category(rawValue: index)!
         configureNavigationBar()
-        updateFloatButtonVisible()
+        updateViewVisible()
         updateUIColor()
         updateImage()
         updateChartDataSource()
+        getData()
     }
 }
 //Updates View
 extension ViewController {
     private func updateImage() {
         categoryImageVIew.image = currentCategory.cardImage()
-        
+        symbolImage.image = currentCategory.arrowImage()
     }
     
     private func updateUIColor() {
@@ -131,22 +162,33 @@ extension ViewController {
         floatButton.backgroundColor = currentCategory.color()
         stepper.stepperColor = color
         lineChartDataSet.setColor(currentCategory.color())
+        moneyBottomLabel.textColor = color
         let gradientColors = [currentCategory.color().cgColor, UIColor.clear.cgColor] as CFArray // Colors of the gradient
         let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) // Gradient Object
-        lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 100) // Set the Gradient
+        UIView.animate(withDuration: 0.3) {
+            self.lineChartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 100)
+        }
+        // Set the Gradient
     }
     
-    private func updateFloatButtonVisible() {
+    private func updateMoneyLabel(value: String) {
+        cardMoneyLabel.text = value
+        moneyBottomLabel.text = value + " €"
+    }
+    
+    private func updateViewVisible() {
         switch currentCategory {
         case .Balance:
             self.floatButton.alpha = 0
             self.floatButton.isHidden = true
+            self.lineChart.alpha = 0
         case .Costs:
             fallthrough
         case .Earn:
             UIView.animate(withDuration: 0.3, animations:{
                 self.floatButton.alpha = 1
+                self.lineChart.alpha = 1
             })
             self.floatButton.isHidden = false
         }
@@ -158,7 +200,11 @@ extension ViewController {
     }
     
     private func setDate(value: Int) {
-        stepper.setTitle(text: Date().getDateByOffset(offset: value).getDescription())
+        selectedDate = Date().getDateByOffset(offset: value)
+        let title = selectedDate.getDayOfWeek() + " " + selectedDate.getDescription()
+        stepper.setTitle(text:title )
+        cardDate.text = title
+        getData()
     }
     
 }

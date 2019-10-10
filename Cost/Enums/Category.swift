@@ -7,14 +7,22 @@
 //
 
 import UIKit
-enum Category : Int {
+enum Category : Int, CaseIterable {
     
     case Balance
     case Earn
     case Costs
     
     func string() -> String {
-        return  String(describing: self).lowercased().localizedString()
+        return  baseString().lowercased().localizedString()
+    }
+    
+    private func baseString() -> String {
+        return  String(describing: self)
+    }
+    
+    func categoryNameAPI() -> String {
+        return self.baseString()
     }
     
     func index() -> Int {

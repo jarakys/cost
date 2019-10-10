@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 struct RequestManager : Networking {
 
-    
     static let URL:String = "http://starov88-001-site10.itempurl.com/api/"
     
     func register(user: UserRegistrationModel, complition: @escaping (_ response: DataResponse<Any,AFError>)->Void) {
@@ -45,8 +44,28 @@ struct RequestManager : Networking {
         }
     }
     
-    func getDailyReport(currecncyBase: String, currency: String, complition: @escaping (_ data: DataResponse<Any, AFError>)->Void) {
+    func sendDailyReport(model: BaseDailyModel,token: String, complition: @escaping (_ data: DataResponse<Any, AFError>)->Void) {
+        let headers: HTTPHeaders = [
+             "Authorization": "Bearer "+token
+         ]
+        let _model = model
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try! jsonEncoder.encode(_model)
+        let json = String(data: jsonData, encoding: String.Encoding.utf8)
+        print(json)
+        
+        AF.request(RequestManager.URL + "DailyReport", method: .post, parameters: _model, encoder: JSONParameterEncoder.default, headers: headers).responseJSON { response in
+            complition(response)
+        }
     }
-    
+
+    func getStatistics(dateStart: Date, dateEnd: Date, statisticType: Category,token: String, complition: @escaping (DataResponse<Any, AFError>) -> Void) {
+        let headers: HTTPHeaders = [
+             "Authorization": "Bearer "+token
+         ]
+        AF.request(RequestManager.URL + "Statistics?DateStart=\(dateStart.getDescription(formattingStyle: "YYYY/MM/dd"))&DateEnd=\(dateEnd.getDescription(formattingStyle: "YYYY/MM/dd"))&SatisticsType=\(statisticType.categoryNameAPI())", method: .get, headers: headers).responseJSON { response in
+            complition(response)
+        }
+    }
     
 }

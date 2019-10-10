@@ -29,6 +29,8 @@ enum UserCategories : String, CaseIterable {
         return self.rawValue.localizedString()
     }
     
+    
+    
     private func imageName() -> String {
          return self.rawValue
     }

@@ -17,8 +17,10 @@ class BlurLoader: UIView {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         
         blurEffectView.frame = frame
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
         print(frame)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.isUserInteractionEnabled = true
         self.blurEffectView = blurEffectView
         super.init(frame: frame)
         addSubview(blurEffectView)

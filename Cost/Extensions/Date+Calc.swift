@@ -14,9 +14,15 @@ extension Date {
         let dateFormmater = DateFormatter()
         dateFormmater.locale = Locale(identifier: "en_US_POSIX")
         dateFormmater.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormmater.dateFormat = "YYYY-MM-dd"
-        print(self)
-        print(dateFormmater.string(from: self))
+        dateFormmater.dateFormat = "dd.MM"
+        return dateFormmater.string(from: self)
+    }
+    
+    func getDescription(formattingStyle: String) ->String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.locale = Locale(identifier: "en_US_POSIX")
+        dateFormmater.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormmater.dateFormat = formattingStyle
         return dateFormmater.string(from: self)
     }
     
@@ -27,12 +33,20 @@ extension Date {
          return date
     }
     
+    func getDayOfWeek() -> String {
+        let dateFormatter = DateFormatter()
+        // uncomment to enforce the US locale
+        // dateFormatter.locale = Locale(identifier: "en-US")
+        dateFormatter.setLocalizedDateFormatFromTemplate("EEE")
+        return dateFormatter.string(from: self)
+    }
+    
     func startAndEndOfWeek(dayOfWeek: DaysOfWeek) -> (start:Date,end:Date) {
         var calendar = Calendar(identifier: .gregorian)
         calendar.firstWeekday = dayOfWeek.index()
         let start = calendar.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
         let sunday = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
-        let end =  calendar.date(byAdding: .day, value: 7, to: sunday)!
+        let end =  calendar.date(byAdding: .day, value: 6, to: sunday)!
         return(start,end)
     }
     
