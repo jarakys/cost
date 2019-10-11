@@ -17,8 +17,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "viewWillDisappear(_:)"
-            landmarkType = "7">
+            landmarkName = "BaseViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -49,8 +49,8 @@
             timestampString = "591791393.960364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "updateUIColor()"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,8 +202,8 @@
             timestampString = "591791393.960681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "updateUIColor()"
             landmarkType = "7">
          </BreakpointContent>
@@ -219,8 +219,8 @@
             timestampString = "591791393.960875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -236,8 +236,8 @@
             timestampString = "591791393.961062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -253,8 +253,8 @@
             timestampString = "591791393.96131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -491,8 +491,8 @@
             timestampString = "591549706.755231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,10 +525,10 @@
             timestampString = "591549706.755797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "CategoryViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -542,10 +542,10 @@
             timestampString = "591549706.7561359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "CategoryViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -559,8 +559,8 @@
             timestampString = "591549706.756392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -725,8 +725,8 @@
             timestampString = "591549706.7589231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "configureNavigationBar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -742,8 +742,8 @@
             timestampString = "591549706.759171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "configureNavigationBar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -759,8 +759,8 @@
             timestampString = "591549706.75947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "configureNavigationBar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -793,8 +793,8 @@
             timestampString = "591715732.7476521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "registerAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -810,42 +810,10 @@
             timestampString = "591715732.7476979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "registerAction(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4A910F27-A284-4ABE-95B6-16237E34F2CE - a0b1b2bd62a99d19"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cost.RegistrationViewController.registerAction(Any) -&gt; ()"
-                  moduleName = "Cost"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kirill/Desktop/cost/Cost/Controllers/AuthorizationViewControllers/RegistrationViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "4277">
-               </Location>
-               <Location
-                  uuid = "4A910F27-A284-4ABE-95B6-16237E34F2CE - 1cf1d0f49f470694"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in Cost.RegistrationViewController.registerAction(Any) -&gt; ()"
-                  moduleName = "Cost"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kirill/Desktop/cost/Cost/Controllers/AuthorizationViewControllers/RegistrationViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "190">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -859,8 +827,8 @@
             timestampString = "591715732.747743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "registerAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -944,8 +912,8 @@
             timestampString = "591988663.08327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "LoginViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -961,8 +929,8 @@
             timestampString = "591988663.083604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "loginAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -978,8 +946,8 @@
             timestampString = "591988663.083832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "LoginViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1479,8 +1447,8 @@
             filePath = "Cost/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1495,8 +1463,8 @@
             filePath = "Cost/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1511,8 +1479,8 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "configureUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1527,8 +1495,8 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1591,8 +1559,8 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "keyboardWillShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1607,8 +1575,8 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "keyboardWillShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1623,8 +1591,8 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "keyboardWillHide(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1639,10 +1607,10 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "keyboardWillHide(notification:)"
-            landmarkType = "7">
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "CategoryViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1655,8 +1623,8 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "keyboardWillShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1671,58 +1639,10 @@
             filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "doneButtonAction()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D7307BFF-E536-479F-90A8-6189B5DA9469"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "doneButtonAction()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D7307BFF-E536-479F-90A8-6189B5DA9469 - bdd1f199f19df52"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cost.CategoryViewController.doneButtonAction() -&gt; ()"
-                  moduleName = "Cost"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kirill/Desktop/cost/Cost/Controllers/SettingsControlles/CategoryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "228"
-                  endingLineNumber = "228"
-                  offsetFromSymbolStart = "5204">
-               </Location>
-               <Location
-                  uuid = "D7307BFF-E536-479F-90A8-6189B5DA9469 - b626e3459625d538"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in Cost.CategoryViewController.doneButtonAction() -&gt; ()"
-                  moduleName = "Cost"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kirill/Desktop/cost/Cost/Controllers/SettingsControlles/CategoryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1741,14 +1661,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AE5251B2-69D7-4ADE-BD3E-E67E923F916B - 7bc09c0141754c6"
+                  uuid = "AE5251B2-69D7-4ADE-BD3E-E67E923F916B - e0bef2d165b74180"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Cost.RequestManager.sendDailyReport(model: Cost.BaseDailyModel, token: Swift.String, complition: (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Cost"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kirill/Desktop/cost/Cost/Network/RequestManager.swift"
+                  urlString = "file:///Users/kirill/iCloud%20Drive%20(%D0%B0%D1%80%D1%85%D0%B8%D0%B2)%20-%203/Desktop/cost/Cost/Network/RequestManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
@@ -1756,14 +1676,14 @@
                   offsetFromSymbolStart = "961">
                </Location>
                <Location
-                  uuid = "AE5251B2-69D7-4ADE-BD3E-E67E923F916B - e9008e9a4b280598"
+                  uuid = "AE5251B2-69D7-4ADE-BD3E-E67E923F916B - e02758b3a8810de"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in Cost.RequestManager.sendDailyReport(model: Cost.BaseDailyModel, token: Swift.String, complition: (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Cost"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kirill/Desktop/cost/Cost/Network/RequestManager.swift"
+                  urlString = "file:///Users/kirill/iCloud%20Drive%20(%D0%B0%D1%80%D1%85%D0%B8%D0%B2)%20-%203/Desktop/cost/Cost/Network/RequestManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
@@ -1931,6 +1851,178 @@
             endingLineNumber = "98"
             landmarkName = "configurePieChart(source:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6B08315-CE64-4E7D-B3EE-422B20B7085F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4EAE77A-74C2-4C47-BD78-EC064E4C323C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE60E735-4523-41C9-BF83-0FFB02C39078"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "922A20D0-A412-4E42-8814-7EF749FC5243"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "267620F9-1EB2-4637-98B0-2D29E91E7797"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8D378E6-AAA0-4306-81B1-BA4820691E7A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2B399DA-19CD-4A26-9361-0F87A15CF3CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA1796F2-82A8-45C6-95CD-4603E3F55873"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/TutorialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE609228-B369-4882-A74D-2C1E45501E26"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cost/Controllers/SettingsControlles/CategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "doneButtonAction()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FE609228-B369-4882-A74D-2C1E45501E26 - fd7a2526b9dc2ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cost.CategoryViewController.doneButtonAction() -&gt; ()"
+                  moduleName = "Cost"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kirill/iCloud%20Drive%20(%D0%B0%D1%80%D1%85%D0%B8%D0%B2)%20-%203/Desktop/cost/Cost/Controllers/SettingsControlles/CategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "4626">
+               </Location>
+               <Location
+                  uuid = "FE609228-B369-4882-A74D-2C1E45501E26 - b22c5e0e62a1c8c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in Cost.CategoryViewController.doneButtonAction() -&gt; ()"
+                  moduleName = "Cost"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kirill/iCloud%20Drive%20(%D0%B0%D1%80%D1%85%D0%B8%D0%B2)%20-%203/Desktop/cost/Cost/Controllers/SettingsControlles/CategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "236"
+                  endingLineNumber = "236"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

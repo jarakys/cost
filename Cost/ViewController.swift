@@ -41,6 +41,7 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let color = currentCategory.color()
+        categoryImageVIew.layer.cornerRadius = 20
         floatButton.backgroundColor = color
         configureChart()
         getData()
@@ -75,22 +76,29 @@ class ViewController: BaseViewController {
     private func getData() {
         let json  = storageManager.getData(key: .user)
         let user: UserModel = JsonConverter.jsonToObject(stringJson: json!)!
+        self.updateMoneyLabel(value: "0.0")
+        categoryImageVIew.showBlurLoader()
         requestManager.getStatistics(dateStart: selectedDate, dateEnd: selectedDate, statisticType: currentCategory, token: user.token, complition: { response in
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+              self.categoryImageVIew.removeBluerLoader()
+            })
             switch response.result {
             case .failure:
+                
                 self.showAlert(title: "Error", message: "Check internet connection")
             case .success:
                 if response.response?.statusCode == 200 {
                     debugPrint(response)
                     let statisticJson = try! JsonConverter.toString(value: response.value)
                     let statistic:Statistic = JsonConverter.jsonToObject(stringJson: statisticJson)
-                    self.updateMoneyLabel(value: statistic.totalCost.description)
+                    self.updateMoneyLabel(value: (round(100*statistic.totalCost)/100).description)
                 }
                 else {
-                    debugPrint(response)
                     self.showAlert(title: "Error", message: "Server Error")
                 }
             }
+            
         })
     }
     

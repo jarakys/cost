@@ -86,14 +86,14 @@ extension StatisticViewController {
     private func configurePieChart(source: Statistic) {
         let earned = source.dailyReportItem.reduce(0, { (result, item) -> Float in
             if item.costs == 0 {
-                return result + item.income
+                return result + round(100*item.income)/100
             }
             return result
         })
         
         let costs = source.dailyReportItem.reduce(0, { (result, item) -> Float in
             if item.income == 0 {
-                return result + item.costs
+                return result + round(100*item.costs)/100
             }
             return result
         })
@@ -104,7 +104,7 @@ extension StatisticViewController {
         
         dataOne.value = Double((earned-costs) != 0 ? (earned-costs) : 30)
         dataTwo.value =  Double(costs != 0 ? costs : 30)
-        dataThree.value = Double(earned != 0 ? costs : 30)
+        dataThree.value = Double(earned != 0 ? earned : 30)
         chart.drawMarkers = false
         chart.usePercentValuesEnabled = true
         chart.backgroundColor = .white
@@ -182,7 +182,7 @@ extension StatisticViewController {
                     let statisticJson = try! JsonConverter.toString(value: response.value)
                     self.statistic = JsonConverter.jsonToObject(stringJson: statisticJson)
                     self.updateTableViewSource(data: self.statistic!)
-                    self.configureUI(count: self.statistic!.totalCost.description)
+                    self.configureUI(count: ( round(100*self.statistic!.totalCost)/100).description)
                 }
                 else {
                     self.showAlert(title: "Error", message: "Server Error")

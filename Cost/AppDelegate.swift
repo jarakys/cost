@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             vc = storyBoard.instantiateViewController(withIdentifier: "mainController")
         }
+        if storageManager.getData(key: .isFirstExecution) == nil {
+            vc = storyBoard.instantiateViewController(withIdentifier: "tutorial")
+            storageManager.saveData(data: "false", key: .isFirstExecution)
+        }
         rootController.pushViewController(vc, animated: true)
         return true
     }

@@ -15,10 +15,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.title = "Log in"
+        passwordField.addLine(position: .LINE_POSITION_BOTTOM, color: UIColor(red:0.44, green:0.44, blue:0.44, alpha:1.0), width: 1)
+        usernameField.addLine(position: .LINE_POSITION_BOTTOM, color: UIColor(red:0.44, green:0.44, blue:0.44, alpha:1.0), width: 1)
+        navItemApperace()
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func loginAction(_ sender: Any) {
         //
         let storyBoard = UIStoryboard(name: "Main", bundle:nil)
@@ -27,11 +30,7 @@ class LoginViewController: UIViewController {
             showAlert(title: "Error", message: "Empty fields")
             return
         }
-        
         let user = UserLoginModel(email: usernameField.text!, password: passwordField.text!, accountType: 1)
-//        let jsonEncoder = JSONEncoder()
-//        let jsonData = try! jsonEncoder.encode(user)
-//        let json = String(data: jsonData, encoding: String.Encoding.utf8)
         let requestManager = RequestManager()
         self.view.showBlurLoader()
         requestManager.logIn(user: user, complition: {response in
@@ -62,6 +61,25 @@ class LoginViewController: UIViewController {
     }
     
 
+    private func navItemApperace() {
+                if #available(iOS 13.0, *) {
+                    let appearance = UINavigationBarAppearance()
+                    appearance.backgroundColor = .white
+                    appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(red:0.44, green:0.47, blue:0.51, alpha:1.0)]
+                    appearance.shadowColor = .white
+                    appearance.shadowImage = UIImage()
+                    appearance.backgroundColor = .white
+                    appearance.backgroundImage = UIImage()
+                    self.navigationController?.navigationBar.prefersLargeTitles = true
+                    self.navigationController?.navigationBar.standardAppearance = appearance
+                    self.navigationController?.navigationBar.compactAppearance = appearance
+                    self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+                    
+                }
+                self.navigationController?.view.backgroundColor = .white
+                self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     /*
     // MARK: - Navigation
 

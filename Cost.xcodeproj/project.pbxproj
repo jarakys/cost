@@ -52,6 +52,8 @@
 		EDC28BE9234DC224005CD2E2 /* Bundle+SetLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */; };
 		EDC28BEB234DC62F005CD2E2 /* String+Locaized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */; };
 		EDC28BED234DD480005CD2E2 /* StatisticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC28BEC234DD480005CD2E2 /* StatisticType.swift */; };
+		EDC8759A2350865100E47C8E /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC875992350865100E47C8E /* UIView+Border.swift */; };
+		EDC8759C2350990100E47C8E /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8759B2350990100E47C8E /* GetStartedViewController.swift */; };
 		EDE5813E234238810068F0F1 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5813D234238810068F0F1 /* CurrencyViewController.swift */; };
 		EDE5814223423C420068F0F1 /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5814123423C420068F0F1 /* JsonConverter.swift */; };
 		EDEA7C2D234B6A1B00320295 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEA7C2C234B6A1B00320295 /* SyncManager.swift */; };
@@ -61,6 +63,7 @@
 		EDEAA615234E0FDB00EB2145 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA614234E0FDB00EB2145 /* String+OnlyDigits.swift */; };
 		EDEAA617234E18E200EB2145 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA616234E18E200EB2145 /* Statistic.swift */; };
 		EDEAA619234E27E900EB2145 /* GroupedStatisticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA618234E27E900EB2145 /* GroupedStatisticItem.swift */; };
+		EDEAA61B234F767C00EB2145 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA61A234F767C00EB2145 /* TutorialViewController.swift */; };
 		EDF3C405234CA2DD00A0359C /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C404234CA2DD00A0359C /* DateManager.swift */; };
 		EDF3C407234CA3B600A0359C /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */; };
 		EDF3C40A234CA4CB00A0359C /* IterableDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF3C409234CA4CB00A0359C /* IterableDate.swift */; };
@@ -119,6 +122,8 @@
 		EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SetLanguage.swift"; sourceTree = "<group>"; };
 		EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Locaized.swift"; sourceTree = "<group>"; };
 		EDC28BEC234DD480005CD2E2 /* StatisticType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticType.swift; sourceTree = "<group>"; };
+		EDC875992350865100E47C8E /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
+		EDC8759B2350990100E47C8E /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		EDE5813D234238810068F0F1 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		EDE5814123423C420068F0F1 /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
 		EDEA7C2C234B6A1B00320295 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 		EDEAA614234E0FDB00EB2145 /* String+OnlyDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+OnlyDigits.swift"; sourceTree = "<group>"; };
 		EDEAA616234E18E200EB2145 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		EDEAA618234E27E900EB2145 /* GroupedStatisticItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedStatisticItem.swift; sourceTree = "<group>"; };
+		EDEAA61A234F767C00EB2145 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		EDF3C404234CA2DD00A0359C /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		EDF3C406234CA3B600A0359C /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
 		EDF3C409234CA4CB00A0359C /* IterableDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterableDate.swift; sourceTree = "<group>"; };
@@ -210,6 +216,8 @@
 				70DCFAAF233389B1001FE103 /* StaticViewController */,
 				70AE2D99232FAD380006051E /* SettingsViewController.swift */,
 				70AE2D9B232FAEB90006051E /* BaseViewController.swift */,
+				EDEAA61A234F767C00EB2145 /* TutorialViewController.swift */,
+				EDC8759B2350990100E47C8E /* GetStartedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -363,6 +371,7 @@
 				EDC28BE8234DC224005CD2E2 /* Bundle+SetLanguage.swift */,
 				EDC28BEA234DC62F005CD2E2 /* String+Locaized.swift */,
 				EDEAA614234E0FDB00EB2145 /* String+OnlyDigits.swift */,
+				EDC875992350865100E47C8E /* UIView+Border.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -553,10 +562,13 @@
 				EDB6B4362334B5D40028E39F /* SegmentControlView.swift in Sources */,
 				EDB6B43D233529720028E39F /* CategoryViewController.swift in Sources */,
 				EDEAA611234E059F00EB2145 /* EarnModel.swift in Sources */,
+				EDC8759A2350865100E47C8E /* UIView+Border.swift in Sources */,
 				EDEA7C2D234B6A1B00320295 /* SyncManager.swift in Sources */,
 				ED252CF3233FF01900378D9C /* BaseSettingsViewController.swift in Sources */,
 				ED252CEE233FE02B00378D9C /* Currency.swift in Sources */,
+				EDEAA61B234F767C00EB2145 /* TutorialViewController.swift in Sources */,
 				70DCFAB6233395B5001FE103 /* Category.swift in Sources */,
+				EDC8759C2350990100E47C8E /* GetStartedViewController.swift in Sources */,
 				ED252CFA2340C2C700378D9C /* SelectableTableViewCell.swift in Sources */,
 				EDB6B43F23352E1C0028E39F /* UIView+AddShadow.swift in Sources */,
 				ED87F9F02344CF0F00F70536 /* UIView+BlurLoader.swift in Sources */,

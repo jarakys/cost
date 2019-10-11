@@ -17,6 +17,7 @@ class CategoryViewController: BaseViewController {
             self.categoryCollectionView.delegate = self
         }
     }
+    @IBOutlet weak var currencyLabel: UILabel!
     
     @IBOutlet weak var moneyTextField: UITextField! {
         didSet {
@@ -41,21 +42,22 @@ class CategoryViewController: BaseViewController {
     private let storageManager = StorageManager()
     private var categories = UserCategories.allCases
     private var selectedCategoryIndex:Int = 0
+    private var selectedCurrency: Currency!
     @IBOutlet weak var segmenetControlView: SegmentControlView! {
         didSet {
             self.segmenetControlView.delegate = self
             self.segmenetControlView.buttonBackgroundColor = UIColor(red:0.97, green:0.97, blue:0.98, alpha:1.0)
             self.segmenetControlView.setButtonTitiles(buttonTitiles: buttonTitles)
-            let color = currentCategory.color()
             self.segmenetControlView.textColor = .lightGray
             self.segmenetControlView.selectorTextColor = .black
-            self.segmenetControlView.selectorViewColor = color
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print(categories)
         configureUI()
+        updateColorUI()
         categoryCollectionView.reloadData()
         moneyTextField.layer.cornerRadius = 20
         moneyTextField.layer.masksToBounds = true
@@ -75,6 +77,11 @@ class CategoryViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard let currenciesJSON = storageManager.getData(key: .currencyList) else { showAlert(title: "Error", message: "Select your currency in Settings"); return }
+        let currencies:[Currency] = JsonConverter.jsonToObject(stringJson: currenciesJSON)!
+        let currencyIndex = Int(storageManager.getData(key: .currency)!)!
+        selectedCurrency = currencies[currencyIndex]
+        currencyLabel.text = selectedCurrency.id
     }
     
     override func configureNavigationBar() {
@@ -131,6 +138,7 @@ extension CategoryViewController {
         segmenetControlView.selectorViewColor = color
         currentCell?.colorSelectedItem = color
         makePrefix(prefix: selectedSubCategory?.string() ?? "")
+        currencyLabel.textColor = color
     }
     func makePrefix(prefix: String) {
         let attributedString = NSMutableAttributedString(string: prefix + ": ")
@@ -190,7 +198,9 @@ extension CategoryViewController {
         moneyTextField.inputAccessoryView = doneToolbar
       }
 
-      
+      @IBAction func changeCurrencyAction(_ sender: Any) {
+          self.performSegue(withIdentifier: "showCurrencyMenu", sender: nil)
+      }
 
       @objc func doneButtonAction() {
         moneyTextField.resignFirstResponder()
@@ -209,27 +219,22 @@ extension CategoryViewController {
             showAlert(title: "Error", message: "Select category")
             return
         }
-        guard let currenciesJSON = storageManager.getData(key: .currencyList) else { showAlert(title: "Error", message: "Select your currency in Settings"); return }
-        let currencyIndex = Int(storageManager.getData(key: .currency)!)!
-        
-        let currencies:[Currency] = JsonConverter.jsonToObject(stringJson: currenciesJSON)!
-        
+        guard selectedCurrency != nil else {
+             showAlert(title: "Error", message: "Select your currency in Settings"); return
+        }
         let moneyText = countMoney.replacingOccurrences(of: selectedSubCategory!.string()+": ", with: "")
         switch currentCategory {
         case .Costs:
-            model = CostsModel(categoryId: selectedCategoryIndex.description, date: Date().getDescription(formattingStyle: "YYYY/MM/dd"), description: "", currencyBase: currencies[currencyIndex].id, currency: "EUR", costs: moneyText)
+            model = CostsModel(categoryId: selectedCategoryIndex.description, date: Date().getDescription(formattingStyle: "YYYY/MM/dd"), description: "", currencyBase: selectedCurrency.id, currency: "EUR", costs: moneyText)
         case .Earn:
-            model = EarnModel(categoryId: selectedCategoryIndex.description, date: Date().getDescription(formattingStyle: "YYYY/MM/dd"), description: "", currencyBase: "EUR" , currency: currencies[currencyIndex].id, earn: moneyText)
+            model = EarnModel(categoryId: selectedCategoryIndex.description, date: Date().getDescription(formattingStyle: "YYYY/MM/dd"), description: "", currencyBase: "EUR" , currency: selectedCurrency.id, earn: moneyText)
         case .Balance:
             break
         }
-        debugPrint(model)
-        
+        debugPrint(user.token)
         requestManager.sendDailyReport(model: model, token: user.token, complition: {response in
                 debugPrint(response)
-            
         })
-        
       }
 
     @objc func keyboardWillHide(notification: NSNotification) {

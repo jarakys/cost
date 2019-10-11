@@ -23,9 +23,7 @@ class BaseViewController: UIViewController, ConfigurableNavigationBar {
         
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
-        
         if #available(iOS 13.0, *) {
             let app = UINavigationBarAppearance()
             app.shadowColor = .white

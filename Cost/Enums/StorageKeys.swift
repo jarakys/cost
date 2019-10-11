@@ -14,7 +14,7 @@ enum StorageKey : String {
     case currency = "currency"
     case user = "user"
     case currencyList = "currencyList"
-    
+    case isFirstExecution = "isFirstExecution"
     func string() -> String {
         return self.rawValue
     }
